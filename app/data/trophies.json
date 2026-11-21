@@ -9,10 +9,10 @@
     },
     {
       "name": "PSNProfiles",
-      "url": "https://psnprofiles.com/trophies/grand-theft-auto-vi"
+      "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
     },
     {
-      "name": "PlanetGTA6",
+      "name": "planetgta6",
       "url": "https://planetgta6.com/gta-6-trophies/"
     },
     {
@@ -29,7 +29,7 @@
       "hidden": false,
       "kind": "platinum",
       "missable": false,
-      "guide": "Earn every other trophy in the set and this one unlocks last. It is the capstone of the whole list, so use the Roadmap tab to plan the order that gets you here with the least backtracking.",
+      "guide": "Earn the other 54 trophies and the platinum is yours. It is the last one you will unlock, so treat the roadmap tab as the order of work and let this one take care of itself.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -43,7 +43,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Finish the opening mission, Gone Fishing, and this unlocks. It is one of the first trophies on the list, and because it is story-gated, keep a manual save before the mission in case anything goes sideways.",
+      "guide": "Play through the opening mission, Gone Fishing, and the trophy pops when it ends. It is the first story beat, so it cannot be missed as long as you keep a manual save from before the mission.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -57,7 +57,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete Chapter 1. Just keep playing through the story missions and it unlocks when the chapter ends.",
+      "guide": "Finish Chapter 1 in full. Story chapters unlock in order, so keep playing the main missions until the chapter closes.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -71,7 +71,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete Chapter 2. Story progress only — no side content is needed for this one, so it lands naturally as you play through the chapter.",
+      "guide": "Finish Chapter 2 in full. Same as the other chapter trophies: follow the story missions until the chapter ends.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -85,7 +85,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete Chapter 3. Keep following the story missions and it unlocks at the end of the chapter.",
+      "guide": "Finish Chapter 3 in full. Keep working through the story missions in order.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -99,7 +99,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete Chapter 4. Story progress only — it unlocks when the chapter closes.",
+      "guide": "Finish Chapter 4 in full. The story missions carry you here; there is no side requirement.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -113,7 +113,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete the final mission. This is the story finale, so it lands late — do the missable side content first, keep a manual save before the point of no return, and then see the story through to the end.",
+      "guide": "Finish the final mission of the story. One trophy, one ending: complete the last mission and the gold is yours.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -127,7 +127,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete the mission Breakfast Run. It unlocks the moment that mission ends.",
+      "guide": "Complete the mission Breakfast Run. It is a story mission, so it unlocks as you play through the campaign in order.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -141,7 +141,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete the mission The Cartel Heist. It unlocks the moment that mission ends.",
+      "guide": "Complete the mission The Cartel Heist. Follow the story until this heist mission appears, then finish it.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -155,7 +155,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete the mission Child's Play. It unlocks the moment that mission ends.",
+      "guide": "Complete the mission Child's Play. A story mission like the others in this set; play the campaign in order.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -169,7 +169,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete the mission Headliners. It unlocks the moment that mission ends.",
+      "guide": "Complete the mission Headliners. It unlocks through the story, so keep the main missions going.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -183,7 +183,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete the mission VCIA Takedown. It unlocks the moment that mission ends.",
+      "guide": "Complete the mission VCIA Takedown. Story-gated: it appears as you work through the campaign.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -197,7 +197,7 @@
       "hidden": true,
       "kind": "story",
       "missable": true,
-      "guide": "Complete the mission Operation Savage Glory. It unlocks the moment that mission ends.",
+      "guide": "Complete the mission Operation Savage Glory. Finish the story mission when it unlocks.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -211,10 +211,10 @@
       "hidden": false,
       "kind": "completion",
       "missable": false,
-      "guide": "Attain 100% completion. This is the long one — every activity, collectible, and challenge in the game feeds into it, so treat the Roadmap tab as the checklist for this trophy and tick things off as you go.",
+      "guide": "Reach 100 percent completion across everything the game counts: story, side content, collectibles and activities. This is the long grind and the last gold before the platinum; use the checklist to see what is left.",
       "sources": [
         "Exophase",
-        "Output Lag"
+        "PSNProfiles"
       ]
     },
     {
@@ -226,7 +226,7 @@
       "kind": "activity",
       "missable": false,
       "count": 250,
-      "guide": "Complete 250 stunts. Stunts add up across free roam, so fold them into your travel between missions instead of grinding them all at once. The detail pane shows your PSN progress target of 250.",
+      "guide": "Pull off 250 stunts anywhere in Leonida. Stunts build up through normal driving and riding, so chase jumps and near-misses whenever you travel and the count climbs on its own.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -241,10 +241,10 @@
       "kind": "activity",
       "missable": false,
       "count": 9,
-      "guide": "Try each type of activity once. There are 9 activity types to sample — one session of each is enough, and the trophy unlocks once all 9 have been tried.",
+      "guide": "Try each of the 9 activity types once. Work through the activities list — racing, fishing, arcade games, drone races and the rest — one of each is enough.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -256,7 +256,7 @@
       "kind": "activity",
       "missable": false,
       "count": 42,
-      "guide": "Earn a gold medal in all Shooting Range challenges. There are 42 challenges in total — work through them range by range, learn each one's timing and target pattern, and remember only gold medals count toward the total.",
+      "guide": "Earn a gold medal in all 42 Shooting Range challenges. Each range challenge grades you, so learn the targets and pacing per challenge and repeat until gold; the count in the tracker shows how many you have golded.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -271,10 +271,10 @@
       "kind": "activity",
       "missable": false,
       "count": 14,
-      "guide": "Win a Top Fun Drone Race at every location. There are 14 locations — win one race at each and the trophy unlocks.",
+      "guide": "Win a Top Fun Drone Race at every one of the 14 locations. Visit each drone race spot on the map and win there; a win at a location counts once.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "Output Lag"
       ]
     },
     {
@@ -286,10 +286,10 @@
       "kind": "activity",
       "missable": false,
       "count": 20,
-      "guide": "Win 20 different races. Each race only counts once, so you need 20 distinct wins across the race types — re-winning the same race does not move the count.",
+      "guide": "Win 20 different races. Any race type counts as long as the race itself is one you have not won before, so spread your wins across new events.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -300,7 +300,7 @@
       "hidden": false,
       "kind": "activity",
       "missable": false,
-      "guide": "Beat Cal in a fishing challenge. Find Cal, take the challenge, and out-fish him.",
+      "guide": "Beat Cal in a fishing challenge. Find Cal's fishing challenge, then out-fish him; no count is tracked, so a single win does it.",
       "sources": [
         "Exophase",
         "PSNProfiles"
@@ -314,10 +314,10 @@
       "hidden": false,
       "kind": "activity",
       "missable": false,
-      "guide": "Complete an arcade game. Pick any arcade game and play it through to the end.",
+      "guide": "Complete an arcade game. Pick any arcade machine and play it through to the end of a game.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "PSNProfiles"
       ]
     },
     {
@@ -328,10 +328,10 @@
       "hidden": true,
       "kind": "side",
       "missable": true,
-      "guide": "Complete the final mission for Andy. Andy's strand is a chain of missions — finish the last one and the trophy unlocks. Keep a manual save before starting the strand, since the missable flag means it is story-gated.",
+      "guide": "Complete the final mission for Andy. Stranger missions unlock as you meet Andy out in Leonida; finish his whole strand to reach his final mission, and keep a manual save before it in case the strand locks off.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "planetgta6"
       ]
     },
     {
@@ -342,10 +342,10 @@
       "hidden": true,
       "kind": "side",
       "missable": true,
-      "guide": "Complete the final mission for Kenton. Finish Kenton's mission chain to the end, and keep a manual save before you start it.",
+      "guide": "Complete the final mission for Kenton. Work through Kenton's stranger strand to its last mission and finish it.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "planetgta6"
       ]
     },
     {
@@ -356,10 +356,10 @@
       "hidden": true,
       "kind": "side",
       "missable": true,
-      "guide": "Complete the final mission for Billy. Finish Billy's mission chain to the end, and keep a manual save before you start it.",
+      "guide": "Complete the final mission for Billy. Finish Billy's stranger strand; his last mission is the one that pops this.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "planetgta6"
       ]
     },
     {
@@ -371,7 +371,7 @@
       "kind": "side",
       "missable": false,
       "count": 8,
-      "guide": "Complete 8 mission strands for strangers across the state of Leonida. Stranger strands are scattered across the state — work through them between story missions and the count climbs to 8.",
+      "guide": "Complete 8 mission strands for strangers across Leonida. There are more strands than the eight you need, so pick any eight and finish each one to its end.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -385,10 +385,10 @@
       "hidden": true,
       "kind": "side",
       "missable": true,
-      "guide": "Complete the final mission for Randy. Finish Randy's mission chain to the end, and keep a manual save before you start it.",
+      "guide": "Complete the final mission for Randy. Finish Randy's stranger strand to its final mission.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "planetgta6"
       ]
     },
     {
@@ -399,10 +399,10 @@
       "hidden": true,
       "kind": "side",
       "missable": true,
-      "guide": "Complete the final mission for Tyrone. Finish Tyrone's mission chain to the end, and keep a manual save before you start it.",
+      "guide": "Complete the final mission for Tyrone. Work through Tyrone's strand until its last mission, then finish it.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "planetgta6"
       ]
     },
     {
@@ -414,10 +414,10 @@
       "kind": "collectible",
       "missable": false,
       "count": 18,
-      "guide": "Meditate at every spot across Leonida. There are 18 meditation spots — visit each one and meditate there, and the trophy unlocks once the last spot is done.",
+      "guide": "Meditate at every one of the 18 spots across Leonida. The spots are spread over the map; visit each one and meditate there, and the tracker counts the spots you have done.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "planetgta6"
       ]
     },
     {
@@ -428,10 +428,10 @@
       "hidden": true,
       "kind": "side",
       "missable": true,
-      "guide": "Hunt a unique animal for Bret. Bret's hunt targets one specific animal — track it down and take the shot. Keep a manual save before the hunt, since the missable flag means it is a one-off.",
+      "guide": "Hunt a unique animal for Bret. Bret's strand points you at one particular animal; track it and take it down, and keep a save before the hunt in case it only comes once.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "planetgta6"
       ]
     },
     {
@@ -443,10 +443,10 @@
       "kind": "collectible",
       "missable": false,
       "count": 3,
-      "guide": "Complete 3 Collectible Card sets. Cards are scattered across Leonida — finish any 3 full sets and the trophy unlocks.",
+      "guide": "Complete 3 Collectible Card sets. Cards are scattered across Leonida; finish any three full sets to pop this.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "planetgta6"
       ]
     },
     {
@@ -458,10 +458,10 @@
       "kind": "collectible",
       "missable": false,
       "count": 100,
-      "guide": "WAiNK It at 100 locations. There are 100 spots to hit — the count is the grind, so tick them off as you travel instead of saving them all for the end.",
+      "guide": "WAiNK It at 100 locations. The WAiNK spots are spread across the state; hit 100 of them and the count is done.",
       "sources": [
         "Exophase",
-        "Output Lag"
+        "planetgta6"
       ]
     },
     {
@@ -473,10 +473,10 @@
       "kind": "activity",
       "missable": false,
       "count": 50,
-      "guide": "Complete 50 challenges. Challenges span activities and world events, so the total climbs as you play broadly rather than chasing one thing.",
+      "guide": "Complete 50 Challenges. Challenges run through the whole game, so keep clearing them as you play and the count climbs toward 50.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -487,10 +487,10 @@
       "hidden": false,
       "kind": "misc",
       "missable": false,
-      "guide": "Lose a 4 star Wanted Level with your partner and escape the heat. Get to four stars with your partner in the car, then break line of sight and stay hidden until the wanted level clears.",
+      "guide": "Lose a 4 star Wanted Level with your partner and escape the heat. Build four stars with your partner beside you, then break line of sight and get clear without being caught.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -501,7 +501,7 @@
       "hidden": false,
       "kind": "robbery",
       "missable": false,
-      "guide": "Rob 3 shops back-to-back with your partner without losing your Wanted Level. Chain three shop robberies in a row with your partner present and keep the heat on the whole time — if the wanted level drops, the chain resets.",
+      "guide": "Rob 3 shops back-to-back with your partner without losing your Wanted Level. Hit three shops in a row, keep your partner with you, and stay wanted the whole time — if the heat drops, start the run again.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -516,10 +516,10 @@
       "kind": "collectible",
       "missable": false,
       "count": 100,
-      "guide": "Discover 100 vehicles. Every new vehicle you drive or encounter counts toward the 100, so the total climbs naturally as you explore.",
+      "guide": "Discover 100 vehicles. Every new vehicle you find counts once; drive or ride anything you have not discovered yet and the list fills up.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "planetgta6"
       ]
     },
     {
@@ -530,7 +530,7 @@
       "hidden": false,
       "kind": "misc",
       "missable": false,
-      "guide": "Take down 5 enemies in a single use of Combat Focus. Warm up your aim at the Shooting Range first, then group enemies together before triggering Combat Focus and drop five before it ends.",
+      "guide": "Take down 5 enemies in a single use of Combat Focus. Warm up at a shooting range first to learn the timing, then trigger Combat Focus in a fight with five enemies close together and drop all five before it ends.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -544,10 +544,10 @@
       "hidden": true,
       "kind": "misc",
       "missable": true,
-      "guide": "Make an unscheduled departure at VCIA. The description points at the airport — get out of VCIA by an unscheduled route. The cited sources do not pin down the exact spot, so treat this as a try-it-and-see and keep a manual save first.",
+      "guide": "Make an unscheduled departure at VCIA. The description points at the airport; no cited source pins down the exact step yet, so treat it as a one-off moment at VCIA and keep a manual save before trying anything there.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -558,10 +558,10 @@
       "hidden": true,
       "kind": "misc",
       "missable": false,
-      "guide": "Kinda hot in these Rhinos. Rhinos are tanks, and the trophy is tied to dealing with them. The cited sources do not pin down an exact method, so this guide is a pointer, not a recipe.",
+      "guide": "Kinda hot in these Rhinos. Rhinos are the tanks, so this one is about them; no cited source pins down the exact trigger yet, so expect it to come from an encounter with a Rhino rather than a step you can plan.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -572,7 +572,7 @@
       "hidden": false,
       "kind": "robbery",
       "missable": false,
-      "guide": "Rob a jewelry store without being detected. Go in quiet, stay out of sight lines, and leave before the alarm goes up.",
+      "guide": "Rob a jewelry store without being detected. Go in quiet, avoid the cameras and the staff spotting you, and get out with the take before anyone raises the alarm.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -587,7 +587,7 @@
       "kind": "robbery",
       "missable": false,
       "count": 5,
-      "guide": "Rob 5 Bank Vaults and escape. Five vaults, five clean getaways — plan the escape route before you go in, and count each successful escape toward the five.",
+      "guide": "Rob 5 Bank Vaults and escape. Hit five vaults and get clear after each one; the tracker counts vaults robbed and escaped from.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -601,10 +601,10 @@
       "hidden": false,
       "kind": "robbery",
       "missable": false,
-      "guide": "Rob an Armored Truck and escape. Hit the truck, grab the take, and get clear before backup arrives.",
+      "guide": "Rob an Armored Truck and escape. Find a truck on its route, hit it, and get away clean.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -616,10 +616,10 @@
       "kind": "exploration",
       "missable": false,
       "count": 52,
-      "guide": "Explore all of Leonida. There are 52 areas to discover — drive every road and the map fills in as you go.",
+      "guide": "Explore all of Leonida. The map tracks 52 areas; visit each one and the count fills in as you cover the state.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "planetgta6"
       ]
     },
     {
@@ -631,7 +631,7 @@
       "kind": "robbery",
       "missable": false,
       "count": 9,
-      "guide": "Rob an Illegal Operation belonging to each gang. There are 9 gangs, and each one needs one of its operations robbed.",
+      "guide": "Rob an Illegal Operation belonging to each gang. There are 9 gangs, so you need one illegal operation from each; the count shows how many gangs you have hit.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -645,10 +645,10 @@
       "hidden": true,
       "kind": "misc",
       "missable": true,
-      "guide": "Enjoy a cocktail with a view on Ocean Beach. Head to Ocean Beach, order a cocktail, and take in the view. Keep a manual save first — the missable flag means this is a one-off moment.",
+      "guide": "Enjoy a cocktail with a view on Ocean Beach. Head to Ocean Beach and order the cocktail at the spot with the view; it reads as a one-off moment, so keep a manual save before it.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "Output Lag"
       ]
     },
     {
@@ -659,10 +659,10 @@
       "hidden": true,
       "kind": "misc",
       "missable": true,
-      "guide": "Smash your way out of a vehicle showroom in classic style. Drive out through the showroom front — the description calls for style, so do it in one clean run and keep a manual save first.",
+      "guide": "Smash your way out of a vehicle showroom in classic style. It points at a showroom break-out; no cited source pins down which showroom or the exact step, so treat it as a one-off and keep a save before trying a showroom.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -673,10 +673,10 @@
       "hidden": true,
       "kind": "activity",
       "missable": true,
-      "guide": "Follow-through at the Kolt & Associates' bowling alley. Play a round at the Kolt & Associates alley and finish it. Keep a manual save first — the missable flag means this is a one-off visit.",
+      "guide": "Follow-through at the Kolt & Associates' bowling alley. Go bowling at the Kolt & Associates alley and follow through on the game; keep a manual save before it in case the moment only comes once.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "Output Lag"
       ]
     },
     {
@@ -687,10 +687,10 @@
       "hidden": true,
       "kind": "misc",
       "missable": false,
-      "guide": "A partnership with mass appeal. The description is vague by design — this one unlocks through a partnership moment that the cited sources do not spell out in detail.",
+      "guide": "A partnership with mass appeal. The description is deliberately vague and no cited source pins down the exact trigger yet; expect a partnership moment rather than a step you can plan, and let it come as you play.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -702,7 +702,7 @@
       "kind": "misc",
       "missable": false,
       "count": 500,
-      "guide": "Choices made (for better or worse). PSN tracks a count toward 500 — the choices you make across the game add up over time.",
+      "guide": "Choices made (for better or worse). PlayStation tracks 500 choices across the campaign, so keep playing and choosing; the count fills in over a full playthrough rather than in one place.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -716,10 +716,10 @@
       "hidden": true,
       "kind": "misc",
       "missable": false,
-      "guide": "Second time's the charm. Fail once, then succeed on the second attempt.",
+      "guide": "Second time's the charm. The description hints at succeeding on a second attempt; no cited source pins down which moment it means, so keep playing and let it come.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -730,10 +730,10 @@
       "hidden": true,
       "kind": "misc",
       "missable": false,
-      "guide": "What the hell just happened? Something strange happens — the cited pages describe it as an odd world event, and the exact trigger is not pinned down in them.",
+      "guide": "What the hell just happened? The description hints at something strange; no cited source pins down the exact trigger yet, so expect an odd encounter out in Leonida rather than a step you can plan.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "Output Lag"
       ]
     },
     {
@@ -744,10 +744,10 @@
       "hidden": true,
       "kind": "activity",
       "missable": false,
-      "guide": "Bowl 'em over with a melee drive-by. Score a knockdown with a melee attack from a moving vehicle.",
+      "guide": "Bowl 'em over with a melee drive-by. Knock someone down with a melee attack from a moving vehicle — a drive-by with a melee weapon, not a gun.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -759,7 +759,7 @@
       "kind": "money",
       "missable": false,
       "count": 250000,
-      "guide": "Earn $250,000 laundering Marked Bills through your contacts. Launder marked bills through your contacts until the total hits $250,000 — the count climbs with every laundered bill.",
+      "guide": "Earn $250,000 laundering Marked Bills through your contacts. Marked bills come from jobs; pass $250,000 of them through your contacts and the total counts toward the target.",
       "sources": [
         "Exophase",
         "Output Lag"
@@ -774,10 +774,10 @@
       "kind": "money",
       "missable": false,
       "count": 100000,
-      "guide": "Spend $100,000 across all shops. Shop spending counts across every store — the total climbs to $100,000 with normal play plus a few big purchases.",
+      "guide": "Spend $100,000 across all shops. Any shop spending counts, so buy gear, clothes and supplies as you play and the total climbs.",
       "sources": [
         "Exophase",
-        "PSNProfiles"
+        "Output Lag"
       ]
     },
     {
@@ -789,10 +789,10 @@
       "kind": "money",
       "missable": false,
       "count": 8,
-      "guide": "Purchase all garage properties. Buy all 8 garage properties across Leonida.",
+      "guide": "Purchase all garage properties. Buy every one of the 8 garage properties across Leonida.",
       "sources": [
         "Exophase",
-        "PlanetGTA6"
+        "Output Lag"
       ]
     },
     {
@@ -804,7 +804,7 @@
       "kind": "activity",
       "missable": false,
       "count": 10,
-      "guide": "Register 10 vehicles to the Scooter Bros app. Register 10 different vehicles in the app — each new registration moves the count.",
+      "guide": "Register 10 vehicles to the Scooter Bros app. Find vehicles, then register each one in the Scooter Bros app until you have ten.",
       "sources": [
         "Exophase",
         "Output Lag"
