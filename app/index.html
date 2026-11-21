@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -7,103 +7,84 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
+<header>
   <h1>Leonida Platinum</h1>
-  <p class="subtitle">Grand Theft Auto VI — PlayStation 5 trophy guide and progress tracker. 55 trophies: 1 platinum, 2 gold, 6 silver, 46 bronze.</p>
-  <div class="progress" role="status">
-    <div class="progress-line"><span id="progress-text">0 of 55 earned</span><span id="grade-counts"></span></div>
-    <div class="progress-bar"><div id="progress-fill"></div></div>
-  </div>
-  <div class="actions">
-    <button id="btn-export" type="button">Export earned (JSON)</button>
-    <button id="btn-import" type="button">Import earned (JSON)</button>
-    <input id="import-file" type="file" accept="application/json,.json" hidden>
-    <button id="btn-reset" type="button">Reset progress</button>
-    <span id="export-note" class="note" aria-live="polite"></span>
-  </div>
+  <p class="subtitle">A guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI</p>
+  <p id="progress">0 of 55 earned</p>
+  <p id="gradecounts">Platinum 0/1 · Gold 0/2 · Silver 0/6 · Bronze 0/46</p>
+  <div id="bar" role="progressbar" aria-label="Trophies earned"><div id="barfill"></div></div>
 </header>
-
-<div class="toolbar">
-  <label>Grade
-    <select id="filter-grade">
-      <option value="all">All grades</option>
-      <option value="platinum">Platinum</option>
-      <option value="gold">Gold</option>
-      <option value="silver">Silver</option>
-      <option value="bronze">Bronze</option>
-    </select>
-  </label>
-  <label>Kind
-    <select id="filter-kind">
-      <option value="all">All kinds</option>
-      <option value="platinum">Platinum</option>
-      <option value="story">Story</option>
-      <option value="completion">Completion</option>
-      <option value="activity">Activity</option>
-      <option value="side">Strangers &amp; side</option>
-      <option value="collectible">Collectible</option>
-      <option value="misc">Misc</option>
-      <option value="robbery">Robbery</option>
-      <option value="exploration">Exploration</option>
-      <option value="money">Money</option>
-      <option value="missable">Missable</option>
-    </select>
-  </label>
-  <label>Status
-    <select id="filter-status">
-      <option value="all">All</option>
-      <option value="earned">Earned</option>
-      <option value="unearned">Not earned</option>
-    </select>
-  </label>
-  <label class="search">Search
-    <input id="search" type="search" placeholder="Search name, description, or guide" autocomplete="off">
-  </label>
-  <label class="spoiler">
-    <input id="spoiler-toggle" type="checkbox"> Spoiler safe — hide hidden trophies until earned
-  </label>
-</div>
-
 <nav class="tabs" role="tablist" aria-label="Guide sections">
-  <button type="button" data-tab="checklist" role="tab" aria-selected="true">Checklist</button>
+  <button type="button" data-tab="checklist" role="tab" aria-selected="true" class="active">Checklist</button>
   <button type="button" data-tab="roadmap" role="tab" aria-selected="false">Roadmap to Platinum</button>
   <button type="button" data-tab="missables" role="tab" aria-selected="false">Missables</button>
   <button type="button" data-tab="sources" role="tab" aria-selected="false">Sources</button>
 </nav>
-
-<main>
-  <section id="tab-checklist">
-    <p id="result-count" class="note" aria-live="polite"></p>
-    <div class="layout">
-      <div id="checklist" aria-live="polite"><p class="empty">Loading the trophy list…</p></div>
-      <aside id="detail" aria-label="Trophy detail"><p class="empty">Click a trophy row to see its guide, progress target, and sources.</p></aside>
+<section id="tab-checklist">
+  <div class="toolbar">
+    <label>Grade
+      <select id="grade">
+        <option value="all">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+    </label>
+    <label>Kind
+      <select id="kind">
+        <option value="all">All kinds</option>
+        <option value="story">Story</option>
+        <option value="completion">Completion</option>
+        <option value="activity">Activity</option>
+        <option value="side">Side</option>
+        <option value="collectible">Collectible</option>
+        <option value="misc">Misc</option>
+        <option value="robbery">Robbery</option>
+        <option value="exploration">Exploration</option>
+        <option value="money">Money</option>
+        <option value="platinum">Platinum</option>
+        <option value="missable">Missable</option>
+      </select>
+    </label>
+    <label>Status
+      <select id="status-filter">
+        <option value="all">All</option>
+        <option value="earned">Earned</option>
+        <option value="missing">Not earned</option>
+      </select>
+    </label>
+    <label>Search <input id="search" type="search" placeholder="Search name, description or guide"></label>
+    <label class="spoiler-label"><input id="spoiler" type="checkbox"> Hide spoilers</label>
+    <button id="export" type="button">Export progress</button>
+    <label class="import-label">Import progress <input id="import" type="file" accept="application/json"></label>
+    <button id="reset" type="button">Reset</button>
+  </div>
+  <p id="rowcount">55 of 55 shown</p>
+  <div class="checklist-wrap">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Earned</th><th>Trophy</th><th>Description</th><th>Grade</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
     </div>
-  </section>
-
-  <section id="tab-roadmap" hidden>
-    <h2>Roadmap to Platinum</h2>
-    <p>Six stages, in order, ending at the platinum. Finish each stage before moving on where the order matters — the missable trophies are all in stages 1, 2, and 6.</p>
-    <div id="roadmap"></div>
-  </section>
-
-  <section id="tab-missables" hidden>
-    <h2>Missables</h2>
-    <p class="honesty"><strong>Honesty note:</strong> no trophy is confirmed missable as of 19 November 2026. The flags below mean story-gated or one-off, so keep a manual save. The game has no mission replay or New Game Plus as far as the cited sources report.</p>
-    <div id="missables-list"></div>
-  </section>
-
-  <section id="tab-sources" hidden>
-    <h2>Sources</h2>
-    <div id="sources-list"></div>
-  </section>
-</main>
-
-<footer>
-  <p>Unofficial fan-made guide. Not affiliated with Rockstar Games or Take-Two Interactive.</p>
-</footer>
-
-<script src="store.js"></script>
-<script src="filters.js"></script>
-<script src="app.js"></script>
+    <aside id="detail" aria-label="Trophy detail"></aside>
+  </div>
+  <p id="status" role="status"></p>
+</section>
+<section id="tab-roadmap" hidden>
+  <h1 class="tab-title">Roadmap to Platinum</h1>
+  <p>Six stages, in the order to play them, ending at the platinum. Each stage lists its trophies and how many you have earned there.</p>
+  <div id="roadmap"></div>
+</section>
+<section id="tab-missables" hidden>
+  <h1 class="tab-title">Missables</h1>
+  <div id="missables"></div>
+</section>
+<section id="tab-sources" hidden>
+  <h1 class="tab-title">Sources</h1>
+  <div id="sources"></div>
+</section>
+<script type="module" src="app.js"></script>
 </body>
 </html>

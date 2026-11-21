@@ -1,90 +1,67 @@
-// Leonida Platinum — progress store.
-// Earned trophy ids live in localStorage under one key, so progress survives
-// reloads. Export writes the earned list as JSON; import reads such a file
-// back and only applies it when every name in it matches a known trophy.
+// Progress storage for the Leonida Platinum tracker: the earned set lives in
+// localStorage as an array of trophy names, and export/import move that same
+// list as a JSON file. Nothing here touches the network.
 
-const STORE_KEY = 'leonida-platinum-earned-v1';
-const SPOILER_KEY = 'leonida-platinum-spoiler-v1';
+export const STORAGE_KEY = 'gta6-trophy-checklist';
 
-function loadEarned() {
+// Read the stored earned list. Anything that is not a JSON array of strings
+// is treated as no progress rather than throwing.
+export function loadEarned() {
+  let raw = null;
   try {
-    const raw = localStorage.getItem(STORE_KEY);
-    if (!raw) return new Set();
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) return new Set();
-    return new Set(parsed.filter((n) => Number.isInteger(n)));
-  } catch (_e) {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch {
     return new Set();
   }
+  if (!raw) return new Set();
+  let parsed = null;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return new Set();
+  }
+  if (!Array.isArray(parsed)) return new Set();
+  return new Set(parsed.filter((name) => typeof name === 'string'));
 }
 
-function saveEarned(earnedSet) {
+// Persist the earned set. A storage failure (private mode, full quota) is
+// swallowed: the in-memory set stays correct for this page load.
+export function saveEarned(earned) {
   try {
-    localStorage.setItem(STORE_KEY, JSON.stringify([...earnedSet].sort((a, b) => a - b)));
-  } catch (_e) {
-    // Storage full or unavailable: progress stays in memory for this session.
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...earned]));
+  } catch {
+    // Keep going with the in-memory set; progress is not lost this session.
   }
 }
 
-function toggleEarned(earnedSet, id) {
-  const next = new Set(earnedSet);
-  if (next.has(id)) next.delete(id);
-  else next.add(id);
-  saveEarned(next);
-  return next;
-}
-
-function loadSpoiler() {
+// Drop all stored progress.
+export function clearEarned() {
   try {
-    return localStorage.getItem(SPOILER_KEY) === '1';
-  } catch (_e) {
-    return false;
+    localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // Nothing stored, nothing to clear.
   }
 }
 
-function saveSpoiler(on) {
-  try {
-    localStorage.setItem(SPOILER_KEY, on ? '1' : '0');
-  } catch (_e) {
-    // Ignore: spoiler setting stays in memory for this session.
-  }
+// Serialize the earned list for download.
+export function exportEarned(earned) {
+  return JSON.stringify([...earned].sort(), null, 2);
 }
 
-// Download the earned list as JSON: [{id, name}, ...] in id order.
-function exportEarned(trophies, earnedSet) {
-  const rows = trophies
-    .filter((t) => earnedSet.has(t.id))
-    .map((t) => ({ id: t.id, name: t.name }));
-  const blob = new Blob([JSON.stringify(rows, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'leonida-platinum-earned.json';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(url);
-  return rows.length;
-}
-
-// Parse an exported file and return the earned id set. Throws on any problem,
-// and never applies a partial import: every name must match a known trophy.
-function importEarned(fileText, trophies) {
-  const knownByName = new Map(trophies.map((t) => [t.name, t.id]));
-  let parsed;
-  try {
-    parsed = JSON.parse(fileText);
-  } catch (_e) {
-    throw new Error('Import file is not valid JSON.');
+// Validate an imported file before it touches the stored set. The parsed
+// value must be an array of strings, and every name must be one of the 55
+// known trophies; one unknown name rejects the whole file.
+export function validateImport(parsed, knownNames) {
+  if (!Array.isArray(parsed)) {
+    return { ok: false, reason: 'The file does not hold a list.' };
   }
-  if (!Array.isArray(parsed)) throw new Error('Import file must contain a list.');
-  const ids = new Set();
-  for (const entry of parsed) {
-    const name = typeof entry === 'string' ? entry : entry && entry.name;
-    if (typeof name !== 'string' || !knownByName.has(name)) {
-      throw new Error('Unknown trophy name in import: ' + String(name));
+  for (const name of parsed) {
+    if (typeof name !== 'string') {
+      return { ok: false, reason: 'The list holds something that is not a trophy name.' };
     }
-    ids.add(knownByName.get(name));
+    if (!knownNames.has(name)) {
+      return { ok: false, reason: 'Unknown trophy in the file: ' + name };
+    }
   }
-  return ids;
+  return { ok: true, names: [...parsed] };
 }
