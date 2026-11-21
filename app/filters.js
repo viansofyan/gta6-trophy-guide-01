@@ -1,43 +1,74 @@
-// Filters and the spoiler rule: which trophies a view shows, and what a hidden story trophy looks like until earned.
-export function trophyMatches(trophy, filters, earned) {
-  if (filters.grade !== 'all' && trophy.grade !== filters.grade) return false;
-  if (filters.kind === 'missable') {
-    if (!trophy.missable) return false;
-  } else if (filters.kind !== 'all' && trophy.kind !== filters.kind) {
-    return false;
-  }
-  if (filters.status === 'earned' && !earned.has(trophy.name)) return false;
-  if (filters.status === 'remaining' && earned.has(trophy.name)) return false;
-  if (filters.search) {
-    const hay = `${trophy.name} ${trophy.description} ${trophy.guide}`.toLowerCase();
-    if (!hay.includes(filters.search.toLowerCase())) return false;
-  }
-  return true;
+// Leonida Platinum — filtering and spoiler masking (pure functions, no DOM).
+// A trophy is masked when the spoiler setting is on, the trophy is hidden,
+// and it has not been earned yet: its name, description and guide stay hidden
+// until it is earned. Masked trophies never match a search query, so a search
+// cannot leak a hidden name.
+
+const KIND_LABELS = {
+  platinum: 'Platinum',
+  story: 'Story',
+  completion: 'Completion',
+  activity: 'Activity',
+  side: 'Strangers & side',
+  collectible: 'Collectible',
+  misc: 'Misc',
+  robbery: 'Robbery',
+  exploration: 'Exploration',
+  money: 'Money',
+};
+
+function isMasked(trophy, spoilerOn, earnedSet) {
+  return spoilerOn && trophy.hidden && !earnedSet.has(trophy.id);
 }
 
-export function filterTrophies(trophies, filters, earned) {
-  return trophies.filter((t) => trophyMatches(t, filters, earned));
+function displayName(trophy, spoilerOn, earnedSet) {
+  return isMasked(trophy, spoilerOn, earnedSet) ? 'Hidden Trophy' : trophy.name;
 }
 
-export function isSpoilerHidden(trophy, spoilerOn, earned) {
-  return spoilerOn && trophy.hidden && !earned.has(trophy.name);
-}
-
-export function spoilerName(trophy, spoilerOn, earned) {
-  return isSpoilerHidden(trophy, spoilerOn, earned) ? 'Hidden story trophy' : trophy.name;
-}
-
-export function spoilerDescription(trophy, spoilerOn, earned) {
-  return isSpoilerHidden(trophy, spoilerOn, earned)
-    ? 'Hidden on PlayStation until earned — turn the spoiler setting off, or earn it, to reveal it.'
+function displayDescription(trophy, spoilerOn, earnedSet) {
+  return isMasked(trophy, spoilerOn, earnedSet)
+    ? 'Hidden trophy — earn it to reveal its description.'
     : trophy.description;
 }
 
-export function kindLabel(kind) {
-  const labels = {
-    platinum: 'Platinum', story: 'Story', completion: '100% completion', activity: 'Activity',
-    side: 'Strangers & side', collectible: 'Collectible', robbery: 'Robbery',
-    money: 'Money', exploration: 'Exploration', misc: 'Other',
-  };
-  return labels[kind] ?? kind;
+function displayGuide(trophy, spoilerOn, earnedSet) {
+  return isMasked(trophy, spoilerOn, earnedSet)
+    ? 'Hidden trophy — earn it to reveal the guide.'
+    : trophy.guide;
+}
+
+// filters: { grade, kind, status, query, spoilerOn, earnedSet }
+// grade: 'all' | 'platinum' | 'gold' | 'silver' | 'bronze'
+// kind: 'all' | any kind label key | 'missable' (the 22 flagged trophies)
+// status: 'all' | 'earned' | 'unearned'
+// query: free text, matched against name + description + guide.
+function filterTrophies(trophies, filters) {
+  const q = (filters.query || '').trim().toLowerCase();
+  return trophies.filter((t) => {
+    if (filters.grade !== 'all' && t.grade !== filters.grade) return false;
+    if (filters.kind === 'missable') {
+      if (!t.missable) return false;
+    } else if (filters.kind !== 'all' && t.kind !== filters.kind) {
+      return false;
+    }
+    const earned = filters.earnedSet.has(t.id);
+    if (filters.status === 'earned' && !earned) return false;
+    if (filters.status === 'unearned' && earned) return false;
+    if (q) {
+      if (isMasked(t, filters.spoilerOn, filters.earnedSet)) return false;
+      const hay = (t.name + ' ' + t.description + ' ' + t.guide).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function gradeCounts(trophies, earnedSet) {
+  const out = {};
+  for (const t of trophies) {
+    if (!out[t.grade]) out[t.grade] = { earned: 0, total: 0 };
+    out[t.grade].total += 1;
+    if (earnedSet.has(t.id)) out[t.grade].earned += 1;
+  }
+  return out;
 }

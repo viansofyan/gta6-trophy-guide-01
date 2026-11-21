@@ -1,66 +1,90 @@
-// Progress store: earned trophies and settings live in localStorage, with JSON export and import.
-export const PROGRESS_KEY = 'leonida-platinum-progress-v1';
-export const SETTINGS_KEY = 'leonida-platinum-settings-v1';
+// Leonida Platinum — progress store.
+// Earned trophy ids live in localStorage under one key, so progress survives
+// reloads. Export writes the earned list as JSON; import reads such a file
+// back and only applies it when every name in it matches a known trophy.
 
-export function loadEarned() {
+const STORE_KEY = 'leonida-platinum-earned-v1';
+const SPOILER_KEY = 'leonida-platinum-spoiler-v1';
+
+function loadEarned() {
   try {
-    const raw = localStorage.getItem(PROGRESS_KEY);
-    const list = raw ? JSON.parse(raw) : [];
-    return new Set(Array.isArray(list) ? list.filter((n) => typeof n === 'string') : []);
-  } catch {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return new Set();
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return new Set();
+    return new Set(parsed.filter((n) => Number.isInteger(n)));
+  } catch (_e) {
     return new Set();
   }
 }
 
-export function saveEarned(earned) {
-  localStorage.setItem(PROGRESS_KEY, JSON.stringify([...earned]));
-}
-
-export function loadSettings() {
+function saveEarned(earnedSet) {
   try {
-    const raw = localStorage.getItem(SETTINGS_KEY);
-    const parsed = raw ? JSON.parse(raw) : {};
-    return { spoiler: parsed.spoiler === true };
-  } catch {
-    return { spoiler: false };
+    localStorage.setItem(STORE_KEY, JSON.stringify([...earnedSet].sort((a, b) => a - b)));
+  } catch (_e) {
+    // Storage full or unavailable: progress stays in memory for this session.
   }
 }
 
-export function saveSettings(settings) {
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+function toggleEarned(earnedSet, id) {
+  const next = new Set(earnedSet);
+  if (next.has(id)) next.delete(id);
+  else next.add(id);
+  saveEarned(next);
+  return next;
 }
 
-export function exportProgress(earned, settings) {
-  return JSON.stringify({
-    app: 'Leonida Platinum — GTA VI Trophy Guide',
-    game: 'Grand Theft Auto VI',
-    platform: 'PlayStation 5',
-    exportedAt: new Date().toISOString(),
-    earned: [...earned].sort(),
-    settings,
-  }, null, 2);
-}
-
-export function parseImportedProgress(text, knownNames) {
-  const data = JSON.parse(text);
-  const names = Array.isArray(data) ? data : data.earned;
-  if (!Array.isArray(names)) throw new Error('Import file has no earned list.');
-  const known = new Set(knownNames);
-  const earned = new Set();
-  for (const name of names) {
-    if (typeof name === 'string' && known.has(name)) earned.add(name);
+function loadSpoiler() {
+  try {
+    return localStorage.getItem(SPOILER_KEY) === '1';
+  } catch (_e) {
+    return false;
   }
-  const settings = data && typeof data === 'object' && data.settings && typeof data.settings.spoiler === 'boolean'
-    ? { spoiler: data.settings.spoiler }
-    : null;
-  return { earned, settings };
 }
 
-export function downloadText(filename, text) {
-  const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  link.click();
+function saveSpoiler(on) {
+  try {
+    localStorage.setItem(SPOILER_KEY, on ? '1' : '0');
+  } catch (_e) {
+    // Ignore: spoiler setting stays in memory for this session.
+  }
+}
+
+// Download the earned list as JSON: [{id, name}, ...] in id order.
+function exportEarned(trophies, earnedSet) {
+  const rows = trophies
+    .filter((t) => earnedSet.has(t.id))
+    .map((t) => ({ id: t.id, name: t.name }));
+  const blob = new Blob([JSON.stringify(rows, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'leonida-platinum-earned.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
   URL.revokeObjectURL(url);
+  return rows.length;
+}
+
+// Parse an exported file and return the earned id set. Throws on any problem,
+// and never applies a partial import: every name must match a known trophy.
+function importEarned(fileText, trophies) {
+  const knownByName = new Map(trophies.map((t) => [t.name, t.id]));
+  let parsed;
+  try {
+    parsed = JSON.parse(fileText);
+  } catch (_e) {
+    throw new Error('Import file is not valid JSON.');
+  }
+  if (!Array.isArray(parsed)) throw new Error('Import file must contain a list.');
+  const ids = new Set();
+  for (const entry of parsed) {
+    const name = typeof entry === 'string' ? entry : entry && entry.name;
+    if (typeof name !== 'string' || !knownByName.has(name)) {
+      throw new Error('Unknown trophy name in import: ' + String(name));
+    }
+    ids.add(knownByName.get(name));
+  }
+  return ids;
 }
